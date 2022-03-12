@@ -1,24 +1,27 @@
+import org.springframework.boot.gradle.plugin.SpringBootPlugin
+
 plugins {
     id 'org.springframework.boot' version '2.6.4'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
 }
 
-
+springBoot {
+    mainClass = 'com.kata.gameoflife.exposition.GameOfLifeApplication'
+}
 
 allprojects {
     group = 'com.kata'
     version = '0.0.1-SNAPSHOT'
-    sourceCompatibility = '13'
-    springBoot {
-        mainClass = 'com.kata.gameoflife.exposition.GameOfLifeApplication'
+    sourceCompatibility = '11'
+}
+
+subprojects {
+    dependencyManagement {
+        imports {
+            mavenBom SpringBootPlugin.BOM_COORDINATES
+        }
     }
-
-    bootJar {
-        mainClass = 'com.kata.gameoflife.exposition.GameOfLifeApplication'
-    }
-
-
 }
 
 configurations {
