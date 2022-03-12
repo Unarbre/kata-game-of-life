@@ -1,0 +1,6 @@
+rootProject.name = 'game-of-life'
+include 'domain'
+include 'application'
+include 'exposition'
+
+
