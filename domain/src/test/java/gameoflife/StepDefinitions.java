@@ -36,12 +36,15 @@ public class StepDefinitions {
         assertEquals(this.nextGeneration.getCells()[1][1].getStatus(), Status.ALIVE);
     }
 
-    @Then("B0 B1 AND B2 shall be alive")
-    public void b0_b1_and_b2_shall_be_alive() {
-        assertEquals(this.nextGeneration.getCells()[0][1].getStatus(), Status.ALIVE);
-        assertEquals(this.nextGeneration.getCells()[1][1].getStatus(), Status.ALIVE);
-        assertEquals(this.nextGeneration.getCells()[2][1].getStatus(), Status.ALIVE);
+    @Then("B0 AND B2 shall be dead")
+    public void b0_and_b2_shall_be_dead() {
+        assertEquals(this.nextGeneration.getCells()[1][0].getStatus(), Status.DEAD);
+        assertEquals(this.nextGeneration.getCells()[1][2].getStatus(), Status.DEAD);
+    }
 
+    @Then("B1 shall be alive")
+    public void b1_shall_be_alive() {
+        assertEquals(this.nextGeneration.getCells()[1][1].getStatus(), Status.ALIVE);
     }
 
 

@@ -152,5 +152,6 @@ Feature: Cell cycle of life
             | x | x | x |
             | . | . | . |
         When The next game tick occures
-        Then B0 B1 AND B2 shall be alive
+        Then B0 AND B2 shall be dead
+        And B1 shall be alive
 
