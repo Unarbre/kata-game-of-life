@@ -2,7 +2,7 @@ package gameoflife;
 
 
 import com.kata.gameoflife.domain.generation.Generation;
-import com.kata.gameoflife.domain.generation.cell.Liveness;
+import com.kata.gameoflife.domain.generation.cell.Status;
 import com.kata.gameoflife.domain.generation.services.GenerationDomainService;
 import gameoflife.utils.CucumberGenerationUtils;
 import io.cucumber.java.en.Given;
@@ -28,19 +28,19 @@ public class StepDefinitions {
 
     @Then("the center cell should be dead")
     public void the_center_cell_should_be_dead() {
-        assertEquals(this.nextGeneration.getCells()[1][1].getLiveness(), Liveness.DEAD);
+        assertEquals(this.nextGeneration.getCells()[1][1].getStatus(), Status.DEAD);
     }
 
     @Then("the center cell should be alive")
     public void the_center_cell_should_be_alive() {
-        assertEquals(this.nextGeneration.getCells()[1][1].getLiveness(), Liveness.ALIVE);
+        assertEquals(this.nextGeneration.getCells()[1][1].getStatus(), Status.ALIVE);
     }
 
     @Then("B0 B1 AND B2 shall be alive")
     public void b0_b1_and_b2_shall_be_alive() {
-        assertEquals(this.nextGeneration.getCells()[0][1].getLiveness(), Liveness.ALIVE);
-        assertEquals(this.nextGeneration.getCells()[1][1].getLiveness(), Liveness.ALIVE);
-        assertEquals(this.nextGeneration.getCells()[2][1].getLiveness(), Liveness.ALIVE);
+        assertEquals(this.nextGeneration.getCells()[0][1].getStatus(), Status.ALIVE);
+        assertEquals(this.nextGeneration.getCells()[1][1].getStatus(), Status.ALIVE);
+        assertEquals(this.nextGeneration.getCells()[2][1].getStatus(), Status.ALIVE);
 
     }
 

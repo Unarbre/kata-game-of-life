@@ -1,6 +1,9 @@
 package com.kata.gameoflife.domain.generation.cell;
 
-public enum Liveness {
+import lombok.ToString;
+
+@ToString
+public enum Status {
     ALIVE,
     DEAD,
 }
