@@ -28,7 +28,7 @@ public class GenerationDomainService {
     public Generation getNextGeneration(Generation generation) {
         var nextGenerationCells = Arrays.stream(generation.getCells()).map(lines ->
                 Arrays.stream(lines).map(cell ->
-                        Cell.builder()
+                        Cell.getBuilder()
                                 .coordinates(cell.getCoordinates())
                                 .status(cell.getNextStatus(
                                                 this.getCells(
@@ -41,7 +41,7 @@ public class GenerationDomainService {
         ).toArray(Cell[][]::new);
 
 
-        return Generation.builder()
+        return Generation.getBuilder()
                 .dimensions(generation.getDimensions())
                 .cells(nextGenerationCells)
                 .build();

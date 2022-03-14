@@ -21,7 +21,7 @@ public class GenerationMapper implements Mapper<GetNextGeneration, Generation> {
     @Override
     public Generation map(GetNextGeneration source) {
         final AtomicInteger yIndex = new AtomicInteger(0);
-        return Generation.builder()
+        return Generation.createBuilder()
                 .dimensions(
                         Dimensions.createBuilder()
                                 .length(source.length)
@@ -41,7 +41,7 @@ public class GenerationMapper implements Mapper<GetNextGeneration, Generation> {
         final AtomicInteger xIndex = new AtomicInteger(0);
 
         return Arrays.stream(rawCellLine).map(cell ->
-                Cell.builder()
+                Cell.createBuilder()
                         .coordinates(Coordinates.createBuilder()
                                 .y(yIndex)
                                 .x(xIndex.getAndIncrement())

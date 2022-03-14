@@ -12,7 +12,7 @@ public class CucumberGenerationUtils {
         final AtomicInteger xIndex = new AtomicInteger(0);
         final AtomicInteger yIndex = new AtomicInteger(0);
 
-        return Generation.builder()
+        return Generation.getBuilder()
                 .cells(dataTable
                         .cells().stream()
                         .map((line) -> {
