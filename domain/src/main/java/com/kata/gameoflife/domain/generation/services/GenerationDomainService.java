@@ -8,7 +8,6 @@ import com.kata.gameoflife.domain.generation.cell.Coordinates;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 public class GenerationDomainService {
 
@@ -62,14 +61,14 @@ public class GenerationDomainService {
 
     private List<Coordinates> getAllNeighbors(Cell cell) {
         return List.of(
-                Coordinates.builder().x(cell.getCoordinates().getX() - 1).y(cell.getCoordinates().getY() - 1).build(),
-                Coordinates.builder().x(cell.getCoordinates().getX() - 1).y(cell.getCoordinates().getY()).build(),
-                Coordinates.builder().x(cell.getCoordinates().getX() - 1).y(cell.getCoordinates().getY() + 1).build(),
-                Coordinates.builder().x(cell.getCoordinates().getX()).y(cell.getCoordinates().getY() - 1).build(),
-                Coordinates.builder().x(cell.getCoordinates().getX()).y(cell.getCoordinates().getY() + 1).build(),
-                Coordinates.builder().x(cell.getCoordinates().getX() + 1).y(cell.getCoordinates().getY() - 1).build(),
-                Coordinates.builder().x(cell.getCoordinates().getX() + 1).y(cell.getCoordinates().getY()).build(),
-                Coordinates.builder().x(cell.getCoordinates().getX() + 1).y(cell.getCoordinates().getY() + 1).build()
+                Coordinates.getBuilder().x(cell.getCoordinates().getX() - 1).y(cell.getCoordinates().getY() - 1).build(),
+                Coordinates.getBuilder().x(cell.getCoordinates().getX() - 1).y(cell.getCoordinates().getY()).build(),
+                Coordinates.getBuilder().x(cell.getCoordinates().getX() - 1).y(cell.getCoordinates().getY() + 1).build(),
+                Coordinates.getBuilder().x(cell.getCoordinates().getX()).y(cell.getCoordinates().getY() - 1).build(),
+                Coordinates.getBuilder().x(cell.getCoordinates().getX()).y(cell.getCoordinates().getY() + 1).build(),
+                Coordinates.getBuilder().x(cell.getCoordinates().getX() + 1).y(cell.getCoordinates().getY() - 1).build(),
+                Coordinates.getBuilder().x(cell.getCoordinates().getX() + 1).y(cell.getCoordinates().getY()).build(),
+                Coordinates.getBuilder().x(cell.getCoordinates().getX() + 1).y(cell.getCoordinates().getY() + 1).build()
         );
     }
 }

@@ -7,7 +7,7 @@ public class CellFactory {
 
     static Cell fromCoordinatesAndRawString(final int x, final int y, final String cellCharacter) {
         return Cell.builder()
-                .coordinates(Coordinates.builder()
+                .coordinates(Coordinates.getBuilder()
                         .x(x)
                         .y(y)
                         .build())

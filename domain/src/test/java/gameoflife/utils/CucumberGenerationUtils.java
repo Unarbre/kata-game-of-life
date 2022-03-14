@@ -30,7 +30,7 @@ public class CucumberGenerationUtils {
                 )
 
                 .dimensions(
-                        Dimensions.builder()
+                        Dimensions.getBuilder()
                                 .height(dataTable.height())
                                 .length(dataTable.width())
                                 .build()

@@ -2,16 +2,15 @@ package com.kata.gameoflife.domain.generation.cell;
 
 
 import com.kata.gameoflife.domain.generation.cell.cellStatusStrategy.CellStatusStrategyFactory;
+import com.kata.gameoflife.domain.structures.Entity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
 
-import java.util.Arrays;
-
 @Builder
 @Getter
 @ToString
-public class Cell {
+public class Cell implements Entity {
     private final Coordinates coordinates;
     private final Status status;
 
