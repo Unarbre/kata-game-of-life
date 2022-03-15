@@ -7,7 +7,11 @@ import com.kata.gameoflife.exposition.controllers.generation.dtos.entry.GetNextG
 import com.kata.gameoflife.exposition.controllers.generation.dtos.exit.NextGenerationDto;
 import io.jkratz.mediator.core.Mediator;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("generation")
@@ -18,13 +22,14 @@ public class GenerationController {
     private final NextGenerationAdapter nextGenerationAdapter;
 
     @PostMapping("/next")
-    NextGenerationDto getNextGeneration(@RequestBody GetNextGenerationDto generationDto) {
-        return this.nextGenerationAdapter.adapt(
-                this.mediator.dispatch(new GetNextGeneration(
-                        generationDto.getHeight(),
-                        generationDto.getLength(),
-                        generationDto.getCells())
-                )
-        );
+    ResponseEntity<NextGenerationDto> getNextGeneration(@RequestBody GetNextGenerationDto generationDto) {
+        return ResponseEntity.ok()
+                .body(this.nextGenerationAdapter.adapt(
+                        this.mediator.dispatch(new GetNextGeneration(
+                                generationDto.getHeight(),
+                                generationDto.getLength(),
+                                generationDto.getCells())
+                        ))
+                );
     }
 }

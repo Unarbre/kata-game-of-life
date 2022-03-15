@@ -1,4 +1,4 @@
-package gameoflife.utils;
+package gerkhin.gameoflife.utils;
 
 import com.kata.gameoflife.domain.generation.cell.Status;
 import io.cucumber.core.exception.CucumberException;

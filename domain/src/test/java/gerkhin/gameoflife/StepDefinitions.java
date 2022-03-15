@@ -1,10 +1,10 @@
-package gameoflife;
+package gerkhin.gameoflife;
 
 
 import com.kata.gameoflife.domain.generation.Generation;
 import com.kata.gameoflife.domain.generation.cell.Status;
 import com.kata.gameoflife.domain.generation.services.GenerationDomainService;
-import gameoflife.utils.CucumberGenerationUtils;
+import gerkhin.gameoflife.utils.CucumberGenerationUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

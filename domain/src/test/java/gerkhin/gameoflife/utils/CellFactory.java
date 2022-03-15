@@ -1,4 +1,4 @@
-package gameoflife.utils;
+package gerkhin.gameoflife.utils;
 
 import com.kata.gameoflife.domain.generation.cell.Cell;
 import com.kata.gameoflife.domain.generation.cell.Coordinates;

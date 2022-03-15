@@ -85,10 +85,10 @@ public class Generation implements Aggregate {
 
         private void areCellsValid() {
             if (!this.isCellSizeWellShaped(cells)) {
-                throw new DomainException("Cells height of the generation shall of the height : " + this.dimensions.getHeight());
+                throw new DomainException("Cells height of the generation shall be of the height : " + this.dimensions.getHeight());
             }
             if (!this.areCellsLinesWellShaped(cells)) {
-                throw new DomainException("All lines of the generation shall of the size : " + this.dimensions.getLength());
+                throw new DomainException("All lines of the generation shall be of the size : " + this.dimensions.getLength());
             }
         }
 

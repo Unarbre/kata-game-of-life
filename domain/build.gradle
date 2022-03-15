@@ -13,10 +13,6 @@ dependencies {
     testImplementation 'io.cucumber:cucumber-junit:7.2.3'
 }
 
-test {
-    useJUnitPlatform()
-}
-
 configurations {
     cucumberRuntime {
         extendsFrom testImplementation
@@ -29,7 +25,11 @@ task cucumber() {
         javaexec {
             main = "io.cucumber.core.cli.Main"
             classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
-            args = ['--plugin', 'pretty', '--glue', 'gameoflife', 'src/test/resources']
+            args = ['--plugin', 'pretty', '--glue', 'gerkhin', 'src/test/resources']
         }
     }
+}
+
+test {
+    useJUnitPlatform()
 }
