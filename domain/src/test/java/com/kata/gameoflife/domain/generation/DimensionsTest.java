@@ -11,26 +11,26 @@ import static org.junit.jupiter.api.Assertions.fail;
 public class DimensionsTest {
 
     @Test
-    public void shouldThrowErrorOnHeightStrictlyInferiorToZero() {
+    public void shouldThrowErrorOnHeightInferiorOrEqualZero() {
         try {
             Dimensions.createBuilder()
                     .height(0)
                     .length(3)
                     .build();
-            fail("Generation Creation should throw an error on height being strictly inferior to 0");
+            fail("Generation Creation should throw an error on height being inferior or equal to 0");
         } catch (Exception exception) {
             assertTrue(exception instanceof IncorrectLengthException);
         }
     }
 
     @Test
-    public void shouldThrowErrorOnLengthStrictlyInferiorToZero() {
+    public void shouldThrowErrorOnLengthInferiorOrEqualZero() {
         try {
             Dimensions.createBuilder()
                     .height(3)
                     .length(0)
                     .build();
-            fail("Generation Creation should throw an error on height being strictly inferior to 0");
+            fail("Generation Creation should throw an error on height being inferior or equal to 0");
         } catch (Exception exception) {
             assertTrue(exception instanceof IncorrectHeightException);
         }

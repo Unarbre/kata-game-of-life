@@ -24,7 +24,7 @@ public class CellMockUtils {
                         .toArray(Cell[]::new)).toArray(Cell[][]::new);
     }
 
-    static Cell getValidLivingCell(int coordinatesX, int coordinatesY) {
+    public static Cell getValidLivingCell(int coordinatesX, int coordinatesY) {
         return Cell.getBuilder()
                 .coordinates(Coordinates.getBuilder()
                         .x(coordinatesX)

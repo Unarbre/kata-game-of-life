@@ -1,7 +1,7 @@
 package com.kata.gameoflife.domain.generation.cell;
 
 
-import com.kata.gameoflife.domain.structures.DomainException;
+import com.kata.gameoflife.domain.generation.exceptions.IncorrectCoordinateInformationException;
 
 public class Coordinates {
     int x;
@@ -64,7 +64,7 @@ public class Coordinates {
         public CreateCoordinatesBuilder x(int x) {
 
             if (x < 0) {
-                throw new DomainException("X has to be a superior or equal to 0");
+                throw new IncorrectCoordinateInformationException("X has to be a superior or equal to 0");
             }
 
             this.x = x;
@@ -74,7 +74,7 @@ public class Coordinates {
         public CreateCoordinatesBuilder y(int y) {
 
             if (y < 0) {
-                throw new DomainException("Y has to be a superior or equal to 0");
+                throw new IncorrectCoordinateInformationException("Y has to be a superior or equal to 0");
             }
             this.y = y;
             return this;
