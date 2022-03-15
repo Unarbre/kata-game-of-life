@@ -2,6 +2,8 @@ package com.kata.gameoflife.domain.generation;
 
 
 import com.kata.gameoflife.domain.generation.cell.Cell;
+import com.kata.gameoflife.domain.generation.exceptions.NoCellsException;
+import com.kata.gameoflife.domain.generation.exceptions.NoDimensionsException;
 import com.kata.gameoflife.domain.structures.Aggregate;
 import com.kata.gameoflife.domain.structures.DomainException;
 
@@ -94,11 +96,11 @@ public class Generation implements Aggregate {
 
         public Generation build() {
             if (cells == null) {
-                throw new DomainException("Cells cannot be null");
+                throw new NoCellsException("Cells cannot be null");
             }
 
             if (dimensions == null) {
-                throw new DomainException("Dimensions cannot be null");
+                throw new NoDimensionsException("Dimensions cannot be null");
             }
 
             this.areCellsValid();
