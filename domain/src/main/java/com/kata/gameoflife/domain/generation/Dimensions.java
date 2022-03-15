@@ -1,6 +1,9 @@
 package com.kata.gameoflife.domain.generation;
 
 
+import com.kata.gameoflife.domain.generation.exceptions.IncorrectHeightException;
+import com.kata.gameoflife.domain.generation.exceptions.IncorrectLengthException;
+import com.kata.gameoflife.domain.generation.exceptions.NullPropertyException;
 import com.kata.gameoflife.domain.structures.DomainException;
 
 public class Dimensions {
@@ -30,18 +33,18 @@ public class Dimensions {
     }
 
     public static class GetDimensionsBuilder {
-        private Integer length;
-        private Integer height;
+        private int length;
+        private int height;
 
         GetDimensionsBuilder() {
         }
 
-        public GetDimensionsBuilder length(Integer length) {
+        public GetDimensionsBuilder length(int length) {
             this.length = length;
             return this;
         }
 
-        public GetDimensionsBuilder height(Integer height) {
+        public GetDimensionsBuilder height(int height) {
             this.height = height;
             return this;
         }
@@ -56,29 +59,30 @@ public class Dimensions {
     }
 
     public static class CreateDimensionBuilder {
-        private Integer length;
-        private Integer height;
+        private int length;
+        private int height;
 
         CreateDimensionBuilder () {}
 
-        public CreateDimensionBuilder length(Integer length) {
+        public CreateDimensionBuilder length(int length) {
 
             if (length <= 0) {
-                throw new DomainException("Length has to be a superior to 0");
+                throw new IncorrectHeightException("Length has to be a superior to 0");
             }
             this.length = length;
             return this;
         }
 
-        public CreateDimensionBuilder height(Integer height) {
+        public CreateDimensionBuilder height(int height) {
             if (height <= 0) {
-                throw new DomainException("Height has to be a superior to 0");
+                throw new IncorrectLengthException("Height has to be a superior to 0");
             }
             this.height = height;
             return this;
         }
 
         public Dimensions build() {
+
             return new Dimensions(length, height);
         }
 

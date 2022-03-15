@@ -16,6 +16,14 @@ public class CellMockUtils {
                         .toArray(Cell[]::new)).toArray(Cell[][]::new);
     }
 
+    public static Cell[][] getTwoPerThreeAllLivingCellArray() {
+
+        return IntStream.range(0, 2)
+                .mapToObj(y -> IntStream.range(0, 3)
+                        .mapToObj(x -> CellMockUtils.getValidLivingCell(x, y))
+                        .toArray(Cell[]::new)).toArray(Cell[][]::new);
+    }
+
     static Cell getValidLivingCell(int coordinatesX, int coordinatesY) {
         return Cell.getBuilder()
                 .coordinates(Coordinates.getBuilder()

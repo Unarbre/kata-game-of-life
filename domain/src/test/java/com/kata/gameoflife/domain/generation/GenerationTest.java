@@ -1,9 +1,11 @@
 package com.kata.gameoflife.domain.generation;
 
-import com.kata.gameoflife.domain.generation.exceptions.NoCellsException;
-import com.kata.gameoflife.domain.generation.exceptions.NoDimensionsException;
+import com.kata.gameoflife.domain.generation.exceptions.IncorrectHeightException;
+import com.kata.gameoflife.domain.generation.exceptions.IncorrectLengthException;
+import com.kata.gameoflife.domain.generation.exceptions.NullPropertyException;
 import com.kata.gameoflife.domain.generation.utils.CellMockUtils;
 import com.kata.gameoflife.domain.generation.utils.DimensionsMockUtils;
+import com.kata.gameoflife.domain.generation.utils.GenerationMockUtils;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -14,7 +16,7 @@ public class GenerationTest {
 
 
     @Test
-    public void GenerationCreationShouldThrowAnErrorIfDimensionIsNull() {
+    public void GenerationCreationShouldThrowAnErrorIfDimensionAreNull() {
         int length = 3;
         int height = 3;
         try {
@@ -24,7 +26,7 @@ public class GenerationTest {
                     .build();
             fail( "Generation Creation should throw an error on null dimension." );
         } catch (Exception exception) {
-            assertTrue(exception instanceof NoDimensionsException);
+            assertTrue(exception instanceof NullPropertyException);
         }
     }
 
@@ -38,7 +40,41 @@ public class GenerationTest {
                     .build();
             fail( "Generation Creation should throw an error on null cells." );
         } catch (Exception exception) {
-            assertTrue(exception instanceof NoCellsException);
+            assertTrue(exception instanceof NullPropertyException);
         }
+    }
+
+    @Test
+    public void GenerationCreationShouldThrowAnErrorIfCellsHeightIsDifferentFromDimension() {
+        try {
+            Generation
+                    .createBuilder()
+                    .dimensions(DimensionsMockUtils.getValidDimensions())
+                    .cells(CellMockUtils.getValidAllLivingCell(3, 2))
+                    .build();
+            fail( "Generation Creation should throw an error on different height than cells array." );
+        } catch (Exception exception) {
+            assertTrue(exception instanceof IncorrectHeightException);
+        }
+    }
+
+
+    @Test
+    public void GenerationCreationShouldThrowAnErrorIfOneOfCellsLineIsDifferentFromDimension() {
+        try {
+            Generation
+                    .createBuilder()
+                    .dimensions(DimensionsMockUtils.getValidDimensions())
+                    .cells(CellMockUtils.getTwoPerThreeAllLivingCellArray())
+                    .build();
+            fail( "Generation Creation should throw an error on wrong cells lines length." );
+        } catch (Exception exception) {
+            assertTrue(exception instanceof IncorrectLengthException);
+        }
+    }
+
+    @Test
+    public void GenerationCreationShouldNotThrowAnyErrorOnACorrectGeneration() {
+        GenerationMockUtils.getValidGeneration();
     }
 }

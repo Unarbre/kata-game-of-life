@@ -2,6 +2,7 @@ package com.kata.gameoflife.domain.generation.cell;
 
 
 import com.kata.gameoflife.domain.generation.cell.cellStatusStrategy.CellStatusStrategyFactory;
+import com.kata.gameoflife.domain.generation.exceptions.NullPropertyException;
 import com.kata.gameoflife.domain.structures.DomainException;
 import com.kata.gameoflife.domain.structures.Entity;
 
@@ -81,11 +82,11 @@ public class Cell implements Entity {
 
         public Cell build() {
             if (coordinates == null) {
-                throw new DomainException("Coordinates cannot be set as null");
+                throw new NullPropertyException("Coordinates cannot be set as null");
             }
 
             if (status == null) {
-                throw new DomainException("Status cannot be set as null");
+                throw new NullPropertyException("Status cannot be set as null");
             }
 
             return new Cell(coordinates, status);

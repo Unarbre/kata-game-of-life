@@ -7,22 +7,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class GenerationMockUtils {
 
-    static Generation getValidGeneration() {
+    public static Generation getValidGeneration() {
 
-        Cell[][] cells = {
-                {
-                        CellMockUtils.getValidLivingCell(0, 0),
-                        CellMockUtils.getValidLivingCell(1, 0),
-                },
-                {
-                        CellMockUtils.getValidLivingCell(0, 1),
-                        CellMockUtils.getValidLivingCell(1, 1),
-                }
-        };
-
+        var dimensions = DimensionsMockUtils.getValidDimensions();
         return Generation.getBuilder()
-                .dimensions(DimensionsMockUtils.getValidDimensions())
-                .cells(cells)
+                .dimensions(dimensions)
+                .cells(CellMockUtils.getValidAllLivingCell(dimensions.getHeight(), dimensions.getLength()))
                 .build();
     }
 }

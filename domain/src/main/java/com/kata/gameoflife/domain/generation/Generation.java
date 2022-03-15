@@ -2,10 +2,10 @@ package com.kata.gameoflife.domain.generation;
 
 
 import com.kata.gameoflife.domain.generation.cell.Cell;
-import com.kata.gameoflife.domain.generation.exceptions.NoCellsException;
-import com.kata.gameoflife.domain.generation.exceptions.NoDimensionsException;
+import com.kata.gameoflife.domain.generation.exceptions.IncorrectLengthException;
+import com.kata.gameoflife.domain.generation.exceptions.IncorrectHeightException;
+import com.kata.gameoflife.domain.generation.exceptions.NullPropertyException;
 import com.kata.gameoflife.domain.structures.Aggregate;
-import com.kata.gameoflife.domain.structures.DomainException;
 
 import java.util.Arrays;
 
@@ -86,21 +86,24 @@ public class Generation implements Aggregate {
         }
 
         private void areCellsValid() {
+
             if (!this.isCellSizeWellShaped(cells)) {
-                throw new DomainException("Cells height of the generation shall be of the height : " + this.dimensions.getHeight());
+                throw new IncorrectHeightException("Cells height of the generation shall be of the height : " + this.dimensions.getHeight());
             }
+
             if (!this.areCellsLinesWellShaped(cells)) {
-                throw new DomainException("All lines of the generation shall be of the size : " + this.dimensions.getLength());
+                System.out.println("ouais");
+                throw new IncorrectLengthException("All lines of the generation shall be of the size : " + this.dimensions.getLength());
             }
         }
 
         public Generation build() {
             if (cells == null) {
-                throw new NoCellsException("Cells cannot be null");
+                throw new NullPropertyException("Cells cannot be null");
             }
 
             if (dimensions == null) {
-                throw new NoDimensionsException("Dimensions cannot be null");
+                throw new NullPropertyException("Dimensions cannot be null");
             }
 
             this.areCellsValid();
