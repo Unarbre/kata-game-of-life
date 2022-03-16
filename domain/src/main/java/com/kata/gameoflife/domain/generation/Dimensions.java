@@ -3,10 +3,9 @@ package com.kata.gameoflife.domain.generation;
 
 import com.kata.gameoflife.domain.generation.exceptions.IncorrectHeightException;
 import com.kata.gameoflife.domain.generation.exceptions.IncorrectLengthException;
-import com.kata.gameoflife.domain.generation.exceptions.NullPropertyException;
-import com.kata.gameoflife.domain.structures.DomainException;
+import com.kata.gameoflife.domain.structures.ValueObject;
 
-public class Dimensions {
+public class Dimensions implements ValueObject {
     private final Integer length;
     private final Integer height;
 

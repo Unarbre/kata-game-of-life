@@ -5,11 +5,11 @@ import com.kata.gameoflife.domain.generation.cell.Cell;
 import com.kata.gameoflife.domain.generation.exceptions.IncorrectLengthException;
 import com.kata.gameoflife.domain.generation.exceptions.IncorrectHeightException;
 import com.kata.gameoflife.domain.generation.exceptions.NullPropertyException;
-import com.kata.gameoflife.domain.structures.Aggregate;
+import com.kata.gameoflife.domain.structures.Entity;
 
 import java.util.Arrays;
 
-public class Generation implements Aggregate {
+public class Generation implements Entity {
     private final Dimensions dimensions;
     private final Cell[][] cells;
 
@@ -92,7 +92,6 @@ public class Generation implements Aggregate {
             }
 
             if (!this.areCellsLinesWellShaped(cells)) {
-                System.out.println("ouais");
                 throw new IncorrectLengthException("All lines of the generation shall be of the size : " + this.dimensions.getLength());
             }
         }

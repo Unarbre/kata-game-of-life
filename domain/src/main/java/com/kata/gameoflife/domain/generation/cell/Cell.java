@@ -3,10 +3,9 @@ package com.kata.gameoflife.domain.generation.cell;
 
 import com.kata.gameoflife.domain.generation.cell.cellStatusStrategy.CellStatusStrategyFactory;
 import com.kata.gameoflife.domain.generation.exceptions.NullPropertyException;
-import com.kata.gameoflife.domain.structures.DomainException;
-import com.kata.gameoflife.domain.structures.Entity;
+import com.kata.gameoflife.domain.structures.ValueObject;
 
-public class Cell implements Entity {
+public class Cell implements ValueObject {
     private final Coordinates coordinates;
     private final Status status;
 

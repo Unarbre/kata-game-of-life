@@ -2,8 +2,9 @@ package com.kata.gameoflife.domain.generation.cell;
 
 
 import com.kata.gameoflife.domain.generation.exceptions.IncorrectCoordinateInformationException;
+import com.kata.gameoflife.domain.structures.ValueObject;
 
-public class Coordinates {
+public class Coordinates implements ValueObject {
     int x;
     int y;
 
