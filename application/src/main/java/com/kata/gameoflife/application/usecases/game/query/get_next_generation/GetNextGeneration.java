@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public class GetNextGeneration implements Request<Generation> {
-    public final int length;
     public final int height;
+    public final int length;
     public final String[][] cells;
 }

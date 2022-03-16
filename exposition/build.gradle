@@ -10,11 +10,14 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter:2.6.4'
     compileOnly 'org.projectlombok:lombok:1.18.22'
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
+
+    implementation 'org.springframework.boot:spring-boot-starter:2.6.4'
     testImplementation 'org.springframework.boot:spring-boot-starter-test:2.6.4'
+    implementation 'org.springframework.boot:spring-boot-starter-validation:2.6.4'
     implementation 'org.springframework.boot:spring-boot-starter-web:2.6.4'
+
     implementation 'io.jkratz.springmediatr:spring-mediatr:1.1-RELEASE'
     implementation project(':application')
     implementation project(':domain')
