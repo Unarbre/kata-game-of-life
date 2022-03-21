@@ -8,23 +8,19 @@ import com.kata.gameoflife.exposition.controllers.generation.dtos.exit.NextGener
 import io.jkratz.mediator.core.Mediator;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("generation")
+@RequestMapping("generations")
 @AllArgsConstructor
 public class GenerationController {
 
     private final Mediator mediator;
     private final NextGenerationAdapter nextGenerationAdapter;
 
-    @PostMapping(value = "/next",
-            headers = "Accept=application/json")
+    @PostMapping(value = "/next")
     ResponseEntity<NextGenerationDto> getNextGeneration(@Valid @RequestBody GetNextGenerationDto generationDto) {
         return ResponseEntity.ok()
                 .body(this.nextGenerationAdapter.adapt(
